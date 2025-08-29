@@ -8,20 +8,6 @@
   <meta name="keywords" content="HTML, CSS, JavaScript, CSM">
   <meta name="author" content="T.C">
 </head>
-<!--
-Create a webpage with a form that will have:
-three input boxes for the user to type three integers (numbers)
-a button to process the data (numbers) typed by the user
-a button to clear the form
-a textarea to display the results of the process (or it can be a div or paragraph element below the form)
-You will write the JavaScript code that will:
-receive the data from those three input boxes for the three integers after the user click on the button to process the data
-you will calculate the sum, the average, and the product of the three integers
-you will also calculate the smallest and the largest of the three integers typed
-TIP: For finding the smallest and largest number, use the Math Object Methods of min and max
-you will present the results of these calculations in the text area - DO NOT USE ALERT BOXES!!!
-your script should not present any result if the user does not type NUMBERS in the input boxes and, instead, you should present an error message in the output (result) area.
--->
 <body style="background-color:lightyellow;">
   <h1>Part 2 </h1>
   <p id="demo"> Please Enter Numbers </p>
@@ -64,11 +50,11 @@ Results </textarea>
     let largest = Math.max(number1, number2, number3);
     document.getElementById('result').value += '\nThe largest number is: ' + largest;
   }
-//document.getElementById('numbers1').innerText = 'The sum is: ' + sum;
   function clearForm() {
     document.getElementById('numberForm').reset();
   }
 </script>
+<br/>
 <a href="Homework2.html"> Back to Homework 2</a>
 </body>
 </html>
