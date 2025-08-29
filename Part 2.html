@@ -24,6 +24,7 @@ your script should not present any result if the user does not type NUMBERS in t
 -->
 <body style="background-color:lightyellow;">
   <h1>Part 2 </h1>
+  <p id="demo"> Please Enter Numbers </p>
   <form id= "numberForm">
     <label for ="numbers1">Number 1:</label> 
     <input type= "text" id="numbers1" placeholder="Enter first number">
@@ -34,16 +35,14 @@ your script should not present any result if the user does not type NUMBERS in t
    <label for ="numbers3">Number 3:</label> 
     <input type= "text" id="numbers3" placeholder="Enter third number">
     <div class = "buttons">
-      <button type="button" onclick="reset()">Clear</button>
-    </div>
-  <button type="button" onclick="calculateSum()">Calculate Sum</button>
+  <button type="button" onclick="calculateSum()">Calculate</button>
+  <button type="button" onclick="reset()">Clear</button>
+   </div>
   </form>
-<p id="demo"> please enter a number </p>
 <textarea id="result" rows="6" cols="50" readonly>
 Results </textarea>
 <script>
   function calculateSum() {
-    document.getElementById('demo').innerText = '';
     let num1 = parseFloat(document.getElementById('numbers1').value);
     let num2 = parseFloat(document.getElementById('numbers2').value);
     let num3 = parseFloat(document.getElementById('numbers3').value);
