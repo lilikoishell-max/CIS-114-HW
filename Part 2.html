@@ -26,24 +26,40 @@ your script should not present any result if the user does not type NUMBERS in t
   <h1>Part 2 </h1>
   <form id= "numberForm">
     <label for ="numbers1">Integer 1:</label> 
-    <input type="number" id="numbers1" placeholder="Enter first number">
+    <input type= "text" id="numbers1" placeholder="Enter first number">
     <br/>
     <label for ="numbers2">Integer 2:</label> 
-     <input type="number" id="numbers2" placeholder="Enter second number">
+     <input type= "text" id="numbers2" placeholder="Enter second number">
     <br/>
    <label for ="numbers3">Integer 3:</label> 
-    <input type="number" id="numbers3" placeholder="Enter third number">
-    <p>input numbers  </p>
+    <input type= "text" id="numbers3" placeholder="Enter third number">
     <div class = "buttons">
-    <button type="submit">Submit</button>
-      <button type="reset">Clear</button>
+      <button onclick="reset()">Clear</button>
     </div>
   <button onclick="calculateSum()">Calculate Sum</button>
   </form>
-<p id="demo"></p>
+<p id="demo"> please enter a number </p>
 <script>
- function calculateSum() {}
- document.getElementById('numbers1').innerText = 'The sum is: ' + sum;
+  function calculateSum() {
+    document.getElementById('demo').innerText = '';
+    let num1 = parseFloat(document.getElementById('numbers1').value);
+    let num2 = parseFloat(document.getElementById('numbers2').value);
+    let num3 = parseFloat(document.getElementById('numbers3').value);
+    alert(num1 + " " + num2 + " " + num3);
+    alert(num1 + num2 + num3);
+    number1 = parseFloat(num1);
+    number2 = parseFloat(num2);
+    number3 = parseFloat(num3);
+    if (isNaN(number1) || isNaN(number2) || isNaN(number3)) {
+      //document.getElementById('demo').innerText = 'Error: Please enter valid numbers in all input boxes.';
+          alert("blaugh");
+//      return;
+    }
+  }
+//document.getElementById('numbers1').innerText = 'The sum is: ' + sum;
+  function clearForm() {
+    document.getElementById('numberForm').reset();
+  }
 </script>
 <a href="Homework2.html"> Back to Homework 2</a>
 </body>
