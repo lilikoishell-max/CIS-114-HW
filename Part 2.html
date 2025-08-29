@@ -25,36 +25,45 @@ your script should not present any result if the user does not type NUMBERS in t
 <body style="background-color:lightyellow;">
   <h1>Part 2 </h1>
   <form id= "numberForm">
-    <label for ="numbers1">Integer 1:</label> 
+    <label for ="numbers1">Number 1:</label> 
     <input type= "text" id="numbers1" placeholder="Enter first number">
     <br/>
-    <label for ="numbers2">Integer 2:</label> 
+    <label for ="numbers2">Number 2:</label> 
      <input type= "text" id="numbers2" placeholder="Enter second number">
     <br/>
-   <label for ="numbers3">Integer 3:</label> 
+   <label for ="numbers3">Number 3:</label> 
     <input type= "text" id="numbers3" placeholder="Enter third number">
     <div class = "buttons">
-      <button onclick="reset()">Clear</button>
+      <button type="button" onclick="reset()">Clear</button>
     </div>
-  <button onclick="calculateSum()">Calculate Sum</button>
+  <button type="button" onclick="calculateSum()">Calculate Sum</button>
   </form>
 <p id="demo"> please enter a number </p>
+<textarea id="result" rows="6" cols="50" readonly>
+Results </textarea>
 <script>
   function calculateSum() {
     document.getElementById('demo').innerText = '';
     let num1 = parseFloat(document.getElementById('numbers1').value);
     let num2 = parseFloat(document.getElementById('numbers2').value);
     let num3 = parseFloat(document.getElementById('numbers3').value);
-    alert(num1 + " " + num2 + " " + num3);
-    alert(num1 + num2 + num3);
     number1 = parseFloat(num1);
     number2 = parseFloat(num2);
     number3 = parseFloat(num3);
     if (isNaN(number1) || isNaN(number2) || isNaN(number3)) {
-      //document.getElementById('demo').innerText = 'Error: Please enter valid numbers in all input boxes.';
-          alert("blaugh");
-//      return;
+      document.getElementById('result').value = 'Error: Please enter valid numbers in all input boxes.';
+      return;
     }
+    let sum = number1 + number2 + number3;
+    document.getElementById('result').value = 'The sum is: ' + sum;
+    let average = sum / 3;
+    document.getElementById('result').value += '\nThe average is: ' + average;
+    let product = number1 * number2 * number3;
+    document.getElementById('result').value += '\nThe product is: ' + product;
+    let smallest = Math.min(number1, number2, number3);
+    document.getElementById('result').value += '\nThe smallest number is: ' + smallest;
+    let largest = Math.max(number1, number2, number3);
+    document.getElementById('result').value += '\nThe largest number is: ' + largest;
   }
 //document.getElementById('numbers1').innerText = 'The sum is: ' + sum;
   function clearForm() {
