@@ -25,78 +25,81 @@
       text-align: left;
       padding: 10px;
     }
+  </style>
+</head>
 
-    </style></head><body style="background-color:lightyellow;">
-      <h1>Student Grades</h1>
-      <table>
-        <tr>
-          <td>Homework Average</td>
-          <td><input type="text" id="homework-average"></td>
-        </tr>
-        <tr>
-          <td>Mid-Term Exam Score</td>
-          <td><input type="text" id="mid-termexamscore"></td>
-        </tr>
-        <tr>
-          <td>Final Exam Score</td>
-          <td><input type="text" id="finalexamscore"></td>
-        </tr>
-        <tr>
-          <td>Participation</td>
-          <td><input type="text" id="particiption"></td>
-        </tr>
-      </table>
-      <br>
-      <button type="button" onclick="calculateGrade ()">Calculate Grade</button>
-      <button type="button" onclick="clearForm ()">Clear</button>
-      <br> <br>
-      <textarea id="result" rows="6" cols="50" readonly>Results will appear here </textarea>
-          <script>function calculateGrade() {
-        let hwa = parseFloat(document.getElementById('homework-average').value);
-        let mtes = parseFloat(document.getElementById('mid-termexamscore').value);
-        let few = parseFloat(document.getElementById('finalexamscore').value);
-        let part = parseFloat(document.getElementById('particiption').value);
+<body style="background-color:lightyellow;">
+  <h1>Student Grades</h1>
+  <table>
+    <tr>
+      <td>Homework Average</td>
+      <td><input type="text" id="homework-average"></td>
+    </tr>
+    <tr>
+      <td>Mid-Term Exam Score</td>
+      <td><input type="text" id="mid-termexamscore"></td>
+    </tr>
+    <tr>
+      <td>Final Exam Score</td>
+      <td><input type="text" id="finalexamscore"></td>
+    </tr>
+    <tr>
+      <td>Participation</td>
+      <td><input type="text" id="particiption"></td>
+    </tr>
+  </table>
+  <br>
+  <button type="button" onclick="calculateGrade ()">Calculate Grade</button>
+  <button type="button" onclick="clearForm ()">Clear</button>
+  <br> <br>
+  <textarea id="result" rows="6" cols="50" readonly>Results will appear here </textarea>
+  <script>function calculateGrade() {
+      let hwa = parseFloat(document.getElementById('homework-average').value);
+      let mtes = parseFloat(document.getElementById('mid-termexamscore').value);
+      let few = parseFloat(document.getElementById('finalexamscore').value);
+      let part = parseFloat(document.getElementById('particiption').value);
 
-        if (isNaN(hwa) || isNaN(mtes) || isNaN(few) || isNaN(part) || 
-        hwa < 0 || hwa > 100 || 
-        mtes < 0 || mtes > 100 || 
-        few < 0 || few > 100 || 
+      if (isNaN(hwa) || isNaN(mtes) || isNaN(few) || isNaN(part) ||
+        hwa < 0 || hwa > 100 ||
+        mtes < 0 || mtes > 100 ||
+        few < 0 || few > 100 ||
         part < 0 || part > 100
-        ) {
-          document.getElementById('result').value = 
+      ) {
+        document.getElementById('result').value =
           'Error: Please enter valid numbers 0 through 100 in all input boxes.';
-          return;
-        }
+        return;
+      }
 
-        let finalaverage = (hwa * 0.5) + (mtes * 0.2) + (few * 0.2) + (part * 0.1);
-        let rounded = Math.round(finalaverage);
-      
-        let grade; 
-        if (rounded >=90) grade = "A";
-        else if (rounded >=80) grade = "B";
-        else if (rounded >=70) grade = "C";
-        else if (rounded >=60) grade = "D";
-        else grade = "F";
+      let finalaverage = (hwa * 0.5) + (mtes * 0.2) + (few * 0.2) + (part * 0.1);
+      let rounded = Math.round(finalaverage);
 
-        let message = "Final Grade: " + rounded + "%, Letter Grade: " + grade;
-         if (grade === "D" || grade ==="F") {
-          message += "\nStudent must retake the course.";
-         }
-         if (grade ==="A" || grade ==="B" || grade ==="C") {
-          message += "\nCongratsulations, you passed the course!";
-         }
-         document.getElementById('result').value = message;
+      let grade;
+      if (rounded >= 90) grade = "A";
+      else if (rounded >= 80) grade = "B";
+      else if (rounded >= 70) grade = "C";
+      else if (rounded >= 60) grade = "D";
+      else grade = "F";
 
-        }
-        function clearForm () {
-          document.getElementById ('homework-average').value = '';
-          document.getElementById ('mid-termexamscore').value = '';
-          document.getElementById ('finalexamscore').value = '';
-          document.getElementById ('particiption').value = '';
-          document.getElementById ('result').value = 'Results will appear here';
-         }
-    </script>
-    <nav><a href="Homework3.html">Back to Homework 3</a>
-      </nav>
-      </body>
-    </html>
+      let message = "Final Grade: " + rounded + "%, Letter Grade: " + grade;
+      if (grade === "D" || grade === "F") {
+        message += "\nStudent must retake the course.";
+      }
+      if (grade === "A" || grade === "B" || grade === "C") {
+        message += "\nCongratsulations, you passed the course!";
+      }
+      document.getElementById('result').value = message;
+
+    }
+    function clearForm() {
+      document.getElementById('homework-average').value = '';
+      document.getElementById('mid-termexamscore').value = '';
+      document.getElementById('finalexamscore').value = '';
+      document.getElementById('particiption').value = '';
+      document.getElementById('result').value = 'Results will appear here';
+    }
+  </script>
+  <nav><a href="Homework3.html">Back to Homework 3</a>
+  </nav>
+</body>
+
+</html>
