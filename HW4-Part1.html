@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Javascript Homework 4</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="HTML5 Javascript Homework Assignment 4">
+  <meta name="keywords" content="HTML, CSS, JavaScript, CSM, Homework 4">
+  <meta name="author" content="T.C">
+</head>
+
+<body style="background-color:lightyellow;">
+  <h1>Homework 4 - Looping Statements </h1>
+  <p id="sumResult"></p>
+  <p id="productResult"></p>
+  <br>
+  <p id="sumResultof3"></p>
+  <p id="productResultof3"></p>
+  <script>
+    let sum = 0
+    let product = 1
+    let numbers = []
+    for (let i = 5; i <= 25; i += 4) {
+      sum = sum + i;
+    }
+    for (let i = 5; i <= 25; i += 4) {
+      product = product * i;
+    }
+    document.getElementById("sumResult").innerHTML =
+      "The result of 5 + 9 + 13 + 17 + 21 + 25 is" + " " + sum + ".";
+    document.getElementById("productResult").innerHTML =
+      "The result of 5 * 9 * 13 * 17 * 21 * 25 is" + " " + product.toLocaleString() + ".";
+    
+    let sum2 = 0
+    let product2 = 1
+    let numbers2 = []
+    let i2 = 3;
+
+    while (i2 <= 18) {
+      sum2 = sum2 + i2;
+      product2 = product2 * i2;
+      i2 += 3;
+    }
+    document.getElementById("sumResultof3").innerHTML =
+      "The result of 3 + 6 +9 + 12 + 15 + 18 is" + " " + sum2 + ".";
+    document.getElementById("productResultof3").innerHTML =
+      "The result of 3 * 6 * 9 * 12 * 15 * 18 is" + " " + product2.toLocaleString() + ".";
+  </script>
+  <br>
+  <a href="Homework4.html"> Back to Homework 4</a>
+</body>
+
+</html>

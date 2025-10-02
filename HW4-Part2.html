@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Javascript Homework 4</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="HTML5 Javascript Homework Assignment 4">
+  <meta name="keywords" content="HTML, CSS, JavaScript, CSM, Homework 4">
+  <meta name="author" content="T.C">
+  </head>
+    <body style = "background-color:lightyellow;">
+    <h1>Homework 4 - Looping Statements </h1>
+    <p>Coming Soon </p>
+   <p id="sumResult"></p>
+   <p id="productResult"></p>
+   <script>
+      let sum = 0 
+      let product = 1 
+      let numbers = []
+      let i=3; 
+      while (i<=18) {
+        sum = sum + i; 
+        product = product * i; 
+        i +=3;
+      }
+   documnet.getElementById("sumResult").innerHTML = 
+   "The result of 3+6+9+12+15+18 is" + " " + sum + ".";
+   document.getElementById("productResult").innerHTML = 
+   "The result of 3 * 6 * 9 * 12 * 15 * 18 is" + " " + product.toLocaleString() + ".";
+    </script>
+  <a href = "Homework4.html" > Back to Homework 4</a>
+  </body>
+</html>
