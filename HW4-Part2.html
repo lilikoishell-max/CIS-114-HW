@@ -1,32 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
   <title>Javascript Homework 4</title>
   <meta charset="UTF-8">
   <meta name="description" content="HTML5 Javascript Homework Assignment 4">
   <meta name="keywords" content="HTML, CSS, JavaScript, CSM, Homework 4">
   <meta name="author" content="T.C">
-  </head>
-    <body style = "background-color:lightyellow;">
-    <h1>Homework 4 - Looping Statements </h1>
-    <p>Coming Soon </p>
-   <p id="sumResult"></p>
-   <p id="productResult"></p>
-   <script>
-      let sum = 0 
-      let product = 1 
-      let numbers = []
-      let i=3; 
-      while (i<=18) {
-        sum = sum + i; 
-        product = product * i; 
-        i +=3;
+</head>
+<h1>Homework 4 - Learning Multiplication </h1>
+ <a href="Homework4.html"> Back to Homework 4</a>
+  <br> <br>
+<body style="background-color:lightyellow;">
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 40%;
+      margin-bottom: 30px;
+    }
+
+    td,
+    th {
+      border: 1px solid #635c5c;
+      padding: 10px;
+      
+    }
+tr:nth-child(odd): not (:first-child){
+      background-color: white;}
+
+    tr:nth-child(even) {
+      background-color: #f3f3f3;
+}
+
+    tr:hover {
+      background-color: #eedcdc;
+    }
+
+    th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: middle;
+      background-color: #98bb99;
+      color: white;
+    }
+  </style>
+  <div id="tables-container"></div>
+  <script>
+    const container = document.getElementById("tables-container");
+    for (let multiplier = 5; multiplier <= 9; multiplier++) {
+      const table = document.createElement("table");
+      const headerRow = document.createElement("tr");
+      const headers = ["Number", "Multiplier", "Result"]
+      headers.forEach(headerText => {
+        const header = document.createElement("th");
+        header.textContent = headerText;
+        headerRow.appendChild(header);
+      });
+      table.appendChild(headerRow);
+      for (let number = 1; number <= 9; number++) {
+        const row = document.createElement("tr");
+        const numberCell = document.createElement("td");
+        numberCell.textContent = number;
+        row.appendChild(numberCell);
+        const multiplierCell = document.createElement("td");
+        multiplierCell.textContent = multiplier;
+        row.appendChild(multiplierCell);
+        const resultCell = document.createElement("td");
+        resultCell.textContent = number * multiplier;
+        row.appendChild(resultCell);
+        table.appendChild(row);
       }
-   documnet.getElementById("sumResult").innerHTML = 
-   "The result of 3+6+9+12+15+18 is" + " " + sum + ".";
-   document.getElementById("productResult").innerHTML = 
-   "The result of 3 * 6 * 9 * 12 * 15 * 18 is" + " " + product.toLocaleString() + ".";
-    </script>
-  <a href = "Homework4.html" > Back to Homework 4</a>
-  </body>
+     container.appendChild(table);}
+   
+  </script>
+ 
+</body>
+
 </html>
