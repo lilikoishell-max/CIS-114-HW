@@ -8,41 +8,46 @@
   <meta name="keywords" content="HTML, CSS, JavaScript, CSM, Homework 4">
   <meta name="author" content="T.C">
 </head>
+<style>
+  body {
+    background-color: lightyellow;
+  }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 40%;
+    margin-bottom: 30px;
+  }
+
+  td,
+  th {
+    border: 1px solid #635c5c;
+    padding: 10px;
+
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: white;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
+  }
+
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #98bb99;
+    color: white;
+  }
+</style>
+
 <body>
-<h1>Homework 4 - Learning Multiplication </h1>
- <a href="Homework4.html"> Back to Homework 4</a>
+  <h1>Homework 4 - Learning Multiplication </h1>
+  <a href="Homework4.html"> Back to Homework 4</a>
   <br> <br>
-  <style>
-    body { background-color: lightyellow;}
-    
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 40%;
-      margin-bottom: 30px;
-    }
-
-    td,
-    th {
-      border: 1px solid #635c5c;
-      padding: 10px;
-      
-    }
-tbody tr:nth-child(odd){
-      background-color: white;}
-
-tbody tr:nth-child(even) {
-      background-color: #f3f3f3;
-}
-
-    th {
-      padding-top: 12px;
-      padding-bottom: 12px;
-      text-align: center;
-      background-color: #98bb99;
-      color: white;
-    }
-  </style>
   <div id="tables-container"></div>
   <script>
     const container = document.getElementById("tables-container");
@@ -74,10 +79,11 @@ tbody tr:nth-child(even) {
         tbody.appendChild(row);
       }
       table.appendChild(tbody);
-     container.appendChild(table);}
-   
+      container.appendChild(table);
+    }
+
   </script>
- 
+
 </body>
 
 </html>
