@@ -1,52 +1,91 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Javascript Homework 5</title>
-    <meta charset="UTF-8">
+
+<head>
+  <title>Javascript Homework 5</title>
+  <meta charset="UTF-8">
   <meta name="description" content="HTML5 Javascript Homework Assignment 5">
   <meta name="keywords" content="HTML, CSS, JavaScript, CSM, Homework 5">
   <meta name="author" content="T.C">
-  </head>
-    <body style = "background-color:lightyellow;">
-    <h1>Part 1</h1>
-   <div>
-    <label for="Full Name">Full Name: </label>
-    <input id ="Full Name" type="text" name="Full Name" />
-   </div>
-   <br>
-   <p>Select your Age Group:</p>
-   <input type="radio" id="lessthan21" name="age" value="21">
-<label for="21">Less than 21</label><br>
-  <input type="radio" id="between21and50" name="age" value="22">
-<label for="22">Between 21 and 50</label><br>
-  <input type="radio" id="olderthan50" name="age" value="23">
-<label for="23">Older than 50</label><br>
-<br>
-<p> Select your preferred browser(s):</p>
-<input type="checkbox" id="browser1" name="Browser" value="Firefox">
-<label for="browser1"> Firefox</label><br>
-<input type="checkbox" id="browser2" name="Browser" value="Edge">
-<label for="browser2"> Edge</label><br>
-<input type="checkbox" id="browser3" name="Browser" value="Chrome">
-<label for="browser3"> Chrome</label><br>   
-<input type="checkbox" id="browser4" name="Browser" value="Safari">
-<label for="browser4"> Safari</label><br>
-<br>
-<label for="Movies">Select your movie genre: </label>
-<select movie="dropdownName" id="movies">
-  <option value ="Action">Action </option>
-  <option value ="Comedy">Comedy </option>
-  <option value ="Drama">Drama </option>
-  <option value ="Documentary"> Documentary </option>
-  <option value ="Science Fiction">Science Fiction</option>
-</select>
-<br>
-<br>
-<button type="button" onclick="Submit ()">Submit</button>
-  <button type="button" onclick="clearForm ()">Clear</button>
-<br>
-<br>
+</head>
 
-   <a href = "Homework5.html" > Back to Homework 5</a>
-  </body>
+<body style="background-color:lightyellow;">
+  <h1>Part 1</h1>
+
+  <div>
+    <label for="fullname">Full Name: </label>
+    <input id="fullname" type="text" name="fullname" />
+  </div>
+  <br>
+  <p>Select your Age Group:</p>
+  <input type="radio" id="lessthan21" name="age" value="less21">
+  <label for="lessthan21">Less than 21</label><br>
+  <input type="radio" id="between21and50" name="age" value="22to50">
+  <label for="between21and50">Between 21 and 50</label><br>
+  <input type="radio" id="olderthan50" name="age" value="over50">
+  <label for="olderthan50">Older than 50</label><br>
+  <br>
+  <p> Select your preferred browser(s):</p>
+  <input type="checkbox" id="browser1" name="browser" value="Firefox">
+  <label for="browser1"> Firefox</label><br>
+  <input type="checkbox" id="browser2" name="browser" value="Edge">
+  <label for="browser2"> Edge</label><br>
+  <input type="checkbox" id="browser3" name="browser" value="Chrome">
+  <label for="browser3"> Chrome</label><br>
+  <input type="checkbox" id="browser4" name="browser" value="Safari">
+  <label for="browser4"> Safari</label><br>
+  <br>
+  <br>
+  <label for="Movies">Select your movie genre: </label>
+  <select name="movies" id="movies">
+    <option value="Selectone">Select one...</option>
+    <option value="Action">Action </option>
+    <option value="Comedy">Comedy </option>
+    <option value="Drama">Drama </option>
+    <option value="Documentary"> Documentary </option>
+    <option value="Science Fiction">Science Fiction</option>
+  </select>
+  <br>
+  <br>
+  <button type="button" onclick="submitForm ()">Submit</button>
+  <button type="button" onclick="clearForm ()">Clear</button>
+  <br>
+  <br>
+  <div id="output"> </div>
+  <br>
+  <a href="Homework5.html"> Back to Homework 5</a>
+  <script>
+    function submitForm() {
+      const fullname = document.getElementById('fullname').value.trim();
+      const age = document.querySelector('input[name="age"]:checked');
+      const browsers = document.querySelectorAll('input[name="browser"]:checked');
+      const movies = document.getElementById("movies").value;
+      const output = document.getElementById("output");
+
+      let messages = [];
+
+      if (!fullname) messages.push("Please enter your full name.");
+      if (!age) messages.push("Please select your age group.");
+      if (browsers.length === 0) messages.push("Please select at least one browser.");
+      if (movies === "selectone" || movies === "") messages.push("Please select a movie genre.");
+
+      if (messages.length > 0) {
+        output.style.color = "red";
+        output.innerHTML = messages.join("<br>");
+      } else {
+        output.style.color = "green";
+        output.innerHTML = "Thanks, your data was submitted!";
+      }
+    }
+
+    function clearForm() {
+      document.getElementById("fullname").value = "";
+      document.querySelectorAll('input[name="age"]').forEach(a => a.checked = false);
+      document.querySelectorAll('input[name="browser"]').forEach(b => b.checked = false);
+      document.getElementById("movies").value = "";
+      document.getElementById("output").innerHTML = "";
+    }
+  </script>
+</body>
+
 </html>
