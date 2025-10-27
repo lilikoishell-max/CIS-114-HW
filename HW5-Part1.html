@@ -8,7 +8,7 @@
   <meta name="keywords" content="HTML, CSS, JavaScript, CSM, Homework 5">
   <meta name="author" content="T.C">
 </head>
-
+<script src = "HW5-Part1script.js"></script>
 <body style="background-color:lightyellow;">
   <h1>Part 1</h1>
 
@@ -54,38 +54,6 @@
   <div id="output"> </div>
   <br>
   <a href="Homework5.html"> Back to Homework 5</a>
-  <script>
-    function submitForm() {
-      const fullname = document.getElementById('fullname').value.trim();
-      const age = document.querySelector('input[name="age"]:checked');
-      const browsers = document.querySelectorAll('input[name="browser"]:checked');
-      const movies = document.getElementById("movies").value;
-      const output = document.getElementById("output");
-
-      let messages = [];
-
-      if (!fullname) messages.push("Please enter your full name.");
-      if (!age) messages.push("Please select your age group.");
-      if (browsers.length === 0) messages.push("Please select at least one browser.");
-      if (movies === "selectone" || movies === "") messages.push("Please select a movie genre.");
-
-      if (messages.length > 0) {
-        output.style.color = "red";
-        output.innerHTML = messages.join("<br>");
-      } else {
-        output.style.color = "green";
-        output.innerHTML = "Thanks, your data was submitted!";
-      }
-    }
-
-    function clearForm() {
-      document.getElementById("fullname").value = "";
-      document.querySelectorAll('input[name="age"]').forEach(a => a.checked = false);
-      document.querySelectorAll('input[name="browser"]').forEach(b => b.checked = false);
-      document.getElementById("movies").value = "";
-      document.getElementById("output").innerHTML = "";
-    }
-  </script>
 </body>
 
 </html>
