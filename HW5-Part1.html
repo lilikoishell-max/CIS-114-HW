@@ -10,12 +10,43 @@
     <body style = "background-color:lightyellow;">
     <h1>Part 1</h1>
    <div>
-    <label for="Full Name">Full Name </label>
+    <label for="Full Name">Full Name: </label>
     <input id ="Full Name" type="text" name="Full Name" />
    </div>
+   <br>
+   <p>Select your Age Group:</p>
+   <input type="radio" id="lessthan21" name="age" value="21">
+<label for="21">Less than 21</label><br>
+  <input type="radio" id="between21and50" name="age" value="22">
+<label for="22">Between 21 and 50</label><br>
+  <input type="radio" id="olderthan50" name="age" value="23">
+<label for="23">Older than 50</label><br>
+<br>
+<p> Select your preferred browser(s):</p>
+<input type="checkbox" id="browser1" name="Browser" value="Firefox">
+<label for="browser1"> Firefox</label><br>
+<input type="checkbox" id="browser2" name="Browser" value="Edge">
+<label for="browser2"> Edge</label><br>
+<input type="checkbox" id="browser3" name="Browser" value="Chrome">
+<label for="browser3"> Chrome</label><br>   
+<input type="checkbox" id="browser4" name="Browser" value="Safari">
+<label for="browser4"> Safari</label><br>
+<br>
+<label for="Movies">Select your movie genre: </label>
+<select movie="dropdownName" id="movies">
+  <option value ="Action">Action </option>
+  <option value ="Comedy">Comedy </option>
+  <option value ="Drama">Drama </option>
+  <option value ="Documentary"> Documentary </option>
+  <option value ="Science Fiction">Science Fiction</option>
+</select>
+<br>
+<br>
 <button type="button" onclick="Submit ()">Submit</button>
   <button type="button" onclick="clearForm ()">Clear</button>
 <br>
+<br>
+
    <a href = "Homework5.html" > Back to Homework 5</a>
   </body>
 </html>
