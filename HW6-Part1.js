@@ -1,16 +1,14 @@
 function submitForm() {
     const input = document.getElementById('number').value;
     const result = document.getElementById('result');
+    result.style.color = "black";
     result.value = '';
 
     const num = parseFloat(input);
-
-    if (isNaN(num)) {
-        result.value = 'Please enter a valid number.';
-        return;
-    }
+    
     const decimalPart = input.split('.')[1];
     if (!decimalPart || decimalPart.length < 4) {
+        result.style.color = "red";
         result.value = "You need to type a number with at least 4 decimal places"
         return
     }
