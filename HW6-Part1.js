@@ -29,4 +29,5 @@ function submitForm() {
 }
 function clearForm() {
     document.getElementById('number').value = ""
+    document.getElementById('result').value = "";
 }

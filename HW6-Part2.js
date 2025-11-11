@@ -3,7 +3,8 @@ function searchCharacter() {
     const searchChar = document.getElementById('searchChar').value;
     const result = document.getElementById('result')
     if (content === "" || searchChar === "") {
-        alert("Please fill in both boxes!");
+        result.style.color = "red";
+        result.innerHTML ="Please fill in both boxes!";
         return;
     }
     const lowerContent = content.toLowerCase();
@@ -29,3 +30,8 @@ function searchCharacter() {
         );
     }
 }
+  function clearForm() {
+    document.getElementById('content').value = ""
+    document.getElementById('searchChar').value = "";
+    document.getElementById('result').innerHTML = "";
+    }
