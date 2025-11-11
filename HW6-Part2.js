@@ -19,7 +19,7 @@ function searchCharacter() {
         result.style.color = "red";
     } else {
         result.innerHTML = "";
-        const newWindow = window.open("", "NotFoundWindow", "width=300,height=100,left=1200,top=100");
+        const newWindow = window.open("", "NotFoundWindow", "width=300,height=100,left=1000,top=100");
         newWindow.document.write(
             "<!DOCTYPE html>" +
             "<html><head><title> Search Results </title></head><body>" +
