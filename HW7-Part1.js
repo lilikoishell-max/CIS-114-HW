@@ -31,15 +31,15 @@ function applyFontSize() {
     }
 }
 
-const pinkRadio = document.getElementById("change", applyBackgroundColor);
-const greenRadio = document.getElementById("change", applyBackgroundColor);
+const pinkRadio = document.getElementById("colorpink", applyBackgroundColor);
+const greenRadio = document.getElementById("colorgreen", applyBackgroundColor);
 
 pinkRadio.addEventListener("change", applyBackgroundColor);
-greenRadio.addEventListener("changle", applyBackgroundColor);
+greenRadio.addEventListener("change", applyBackgroundColor);
 
 const fontunderline = document.getElementById("fontunderline");
 const fontbold = document.getElementById("fontbold");
-const fontitalic = documentgetElementById("fontitalic");
+const fontitalic = document.getElementById("fontitalic");
 
 fontunderline.addEventListener("change", applyTextStyles);
 fontbold.addEventListener("change", applyTextStyles);
