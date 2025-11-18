@@ -25,11 +25,25 @@ function applyFontSize() {
     const styledArea = document.getElementById("styledArea");
     const fontSelect = document.getElementById("fontsizes");
     const selectedSize = fontSelect.value;
-    if (selectedSize === "placeholder") {
+
+    if (selectedSize !== "placeholder") {
         styledArea.style.fontSize = selectedSize;
     }
 }
 
-pinkRadio.addEventListener("change", applyBackgroundColor);
-greenRadio.addEventListener("change", applyBackgroundColor);
+const pinkRadio = document.getElementById("change", applyBackgroundColor);
+const greenRadio = document.getElementById("change", applyBackgroundColor);
 
+pinkRadio.addEventListener("change", applyBackgroundColor);
+greenRadio.addEventListener("changle", applyBackgroundColor);
+
+const fontunderline = document.getElementById("fontunderline");
+const fontbold = document.getElementById("fontbold");
+const fontitalic = documentgetElementById("fontitalic");
+
+fontunderline.addEventListener("change", applyTextStyles);
+fontbold.addEventListener("change", applyTextStyles);
+fontitalic.addEventListener("change", applyTextStyles);
+
+const fontsizes = document.getElementById("fontsizes");
+fontsizes.addEventListener("change", applyFontSize);
