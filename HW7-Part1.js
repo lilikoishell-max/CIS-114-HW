@@ -7,6 +7,8 @@ function applyBackgroundColor() {
         styledArea.style.backgroundColor = "pink";
     } else if (greenRadio.checked) {
         styledArea.style.backgroundColor = "green";
+    } else if (whiteRadio.checked) {
+        styledArea.style.backgroundColor = "white";
     }
 }
 
@@ -33,9 +35,11 @@ function applyFontSize() {
 
 const pinkRadio = document.getElementById("colorpink", applyBackgroundColor);
 const greenRadio = document.getElementById("colorgreen", applyBackgroundColor);
+const whiteRadio = document.getElementById("colorwhite", applyBackgroundColor);
 
 pinkRadio.addEventListener("change", applyBackgroundColor);
 greenRadio.addEventListener("change", applyBackgroundColor);
+whiteRadio.addEventListener("change", applyBackgroundColor);
 
 const fontunderline = document.getElementById("fontunderline");
 const fontbold = document.getElementById("fontbold");
