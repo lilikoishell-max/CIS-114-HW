@@ -7,10 +7,10 @@ function applyBackgroundColor() {
         styledArea.style.backgroundColor = "pink";
     } else if (greenRadio.checked) {
         styledArea.style.backgroundColor = "green";
-    } else if (whiteRadio.checked) {
+    } else {
         styledArea.style.backgroundColor = "white";
     }
-}
+    }
 
 function applyTextStyles() {
     const styledArea = document.getElementById("styledArea");
@@ -33,13 +33,11 @@ function applyFontSize() {
     }
 }
 
-const pinkRadio = document.getElementById("colorpink", applyBackgroundColor);
-const greenRadio = document.getElementById("colorgreen", applyBackgroundColor);
-const whiteRadio = document.getElementById("colorwhite", applyBackgroundColor);
+const pinkRadio = document.getElementById("colorpink");
+const greenRadio = document.getElementById("colorgreen");
 
 pinkRadio.addEventListener("change", applyBackgroundColor);
 greenRadio.addEventListener("change", applyBackgroundColor);
-whiteRadio.addEventListener("change", applyBackgroundColor);
 
 const fontunderline = document.getElementById("fontunderline");
 const fontbold = document.getElementById("fontbold");
@@ -51,3 +49,22 @@ fontitalic.addEventListener("change", applyTextStyles);
 
 const fontsizes = document.getElementById("fontsizes");
 fontsizes.addEventListener("change", applyFontSize);
+
+
+function clearForm() {
+    const styledArea = document.getElementById("styledArea");
+    document.getElementById("colorpink").checked = false;
+    document.getElementById("colorgreen").checked = false;
+    document.getElementById("fontunderline").checked = false;
+    document.getElementById("fontbold").checked = false;
+    document.getElementById("fontitalic").checked = false;
+    styledArea.style.textDecoration = "none";
+    styledArea.style.fontWeight = "normal";
+    styledArea.style.fontStyle = "normal";
+    styledArea.style.fontSize = "1em";
+    document.getElementById("fontsizes").value = "placeholder";
+
+    applyBackgroundColor();
+}
+
+document.getElementById("clearbutton").addEventListener("click", clearForm);
