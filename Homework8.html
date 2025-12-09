@@ -12,8 +12,8 @@
 <body style="background-color:lightyellow;">
   <h1>Homework 8 - Ajax Application </h1>
   <a href="index.html"> Back to Assignments</a>
-  <button onclick= loadCds()>Show CD Collection </button>
-  <div id="cdTablet"></div>
+  <button onclick= "loadCds ()">Show CD Collection </button>
+  <div id="Table"></div>
   <script>
     function loadCDs() {
       var xmlhttp = new XMLHttpRequest();
@@ -22,14 +22,14 @@
         if (this.readyState == 4 && this.status == 200) {
           var xmlDoc = this.responseXML;
           var cds = xmlDoc.getElementsByTagName("CD");
-          var tablet = "<tablet border ='1'><tr><th>Title</th><th>Artist</th><th>Year</th></tr>";
+          var table = "<table border ='1'><tr><th>Title</th><th>Artist</th><th>Year</th></tr>";
           for (var i = 0; i < cds.length; i++) {
             var title = cds[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue;
             var artist = cds[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue;
             var year = cds[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue;
             tablet += "<tr><td>" + title + "</td><td>" + artist + "</td><td>" + year + "</td></tr>";
           }
-          tablet += "</tablet>";
+          table += "</table>";
           document.getElementById("cdTablet").innerHTML = table;
         }
       };
