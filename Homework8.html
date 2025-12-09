@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
   <title>Javascript Homework 8</title>
   <meta charset="UTF-8">
   <meta name="description" content="HTML5 Javascript Homework Assignment 8 ">
   <meta name="keywords" content="HTML, CSS, JavaScript, CSM, Homework 8">
   <meta name="author" content="T.C">
-  </head>
-    <body style = "background-color:lightyellow;">
-    <h1>Homework 8 - Ajax Application </h1>
-  <a href = "index.html" > Back to Assignments</a>
-  </body>
+</head>
+
+<body style="background-color:lightyellow;">
+  <h1>Homework 8 - Ajax Application </h1>
+  <a href="index.html"> Back to Assignments</a>
+  <button onclick= loadCds()>Show CD Collection </button>
+  <div id="cdTablet"></div>
+  <script>
+    function loadCDs() {
+      var xmlhttp = new XMLHttpRequest();
+
+      xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          var xmlDoc = this.responseXML;
+          var cds = xmlDoc.getElementsByTagName("CD");
+          var tablet = "<tablet border ='1'><tr><th>Title</th><th>Artist</th><th>Year</th></tr>";
+          for (var i = 0; i < cds.length; i++) {
+            var title = cds[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue;
+            var artist = cds[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue;
+            var year = cds[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue;
+            tablet += "<tr><td>" + title + "</td><td>" + artist + "</td><td>" + year + "</td></tr>";
+          }
+          tablet += "</tablet>";
+          document.getElementById("cdTablet").innerHTML = table;
+        }
+      };
+
+      xmlhttp.open("GET", "cd_catalog.xml", true);
+      xmlhttp.send();
+    }
+  </script>
+</body>
+
 </html>
