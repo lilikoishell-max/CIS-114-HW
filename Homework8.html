@@ -17,25 +17,25 @@
   <script>
     function loadCDs() {
       if (this.readyState == 4 && this.status == 200) {
-      var xmlhttp = this. responseXML;
-      var cds = xmlDOc.getElementsByTagName == ("CD"); 
-          
-       var table = "<table style='border-collapse: collapse; width: 60%; font-size: 18px;'>";
-          table += "<tr>";
-          table += "<th style='border: 1px solid black; padding: 8px;'>Title</th>";
-          table += "<th style='border: 1px solid black; padding: 8px;'>Artist</th>";
-          table += "<th style='border: 1px solid black; padding: 8px;'>Year</th>";
-          table += "</tr>";
+        var xmlhttp = this.responseXML;
+        var cds = xmlDOc.getElementsByTagName == ("CD");
 
-          for (var i = 0; i < cds.length; i++) {
-            var title = cds[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue;
-            var artist = cds[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue;
-            var year = cds[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue;
-              table += "<tr>";
-            table += "<td style='border: 1px solid black; padding: 6px;'>" + title + "</td>";
-            table += "<td style='border: 1px solid black; padding: 6px;'>" + artist + "</td>";
-            table += "<td style='border: 1px solid black; padding: 6px;'>" + year + "</td>";
-            table += "</tr>";
+        var table = "<table style='border-collapse: collapse; width: 60%; font-size: 18px;'>";
+        table += "<tr>";
+        table += "<th style='border: 1px solid black; padding: 8px;'>Title</th>";
+        table += "<th style='border: 1px solid black; padding: 8px;'>Artist</th>";
+        table += "<th style='border: 1px solid black; padding: 8px;'>Year</th>";
+        table += "</tr>";
+
+        for (var i = 0; i < cds.length; i++) {
+          var title = cds[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue;
+          var artist = cds[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue;
+          var year = cds[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue;
+          table += "<tr>";
+          table += "<td style='border: 1px solid black; padding: 6px;'>" + title + "</td>";
+          table += "<td style='border: 1px solid black; padding: 6px;'>" + artist + "</td>";
+          table += "<td style='border: 1px solid black; padding: 6px;'>" + year + "</td>";
+          table += "</tr>";
           document.getElementById("cdTable").innerHTML = table;
         }
       };
@@ -56,6 +56,28 @@
     gets the title, artists, and year, and creates a new table row with that information. Once all the rows are created,
     the full table is written into the page by setting the innerHTML of the cdTable div.
   </p>
+  <h2> REST API</h2>
+  <p>
+    <a href="https://boggio-analytics.com/fp-api/?ref=apilist.fun">Football Prediction</a> is a REST API that offers
+    predictions data for upcoming football (soccer) matches worldwide. The API uses machine learning to analyze team performance and
+    generate accurate match predictions.
+    <br>   <br>
+    The API returns data in JSON format, making it ease to integrate into applications. Each response includes
+    preidcition probabilities, bookmaker odds, team strength ratings, and multiple betting markets like 1x2 outcomes,
+    both teams to score, and over/under goals.
+    <br>   <br>
+    To access the Football Prediction API, developers need to register for an API key through RapidAPI. This key is used
+    to authenticate requests and track usage. The Basic plan is completely free with 100 API calls per month. Paid plans
+    start at $14.99 per month for 500 calls per day, scaling up to $29.99 per month for 12,000 calls per day.
+    <br>   <br>
+    API Documentation is available at the official Football Prediction API website and RapidAPI platform. The
+    documentation includes endpoint specifications, sample responses, and code examples in multiple programming
+    languages.
+    <br>   <br>
+    This API is a great way to add professional football predictions to your sports platform!
+
+  </p>
+
   <a href="index.html"> Back to Assignments</a>
 </body>
 
