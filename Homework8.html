@@ -11,24 +11,31 @@
 
 <body style="background-color:lightyellow;">
   <h1>Homework 8 - Ajax Application </h1>
-  <button onclick= "loadCDs()">Show CD Collection </button>
+  <button onclick="loadCDs()">Show CD Collection </button>
   <div id="cdTable"></div>
+
   <script>
     function loadCDs() {
-      var xmlhttp = new XMLHttpRequest();
+      if (this.readyState == 4 && this.status == 200) {
+      var xmlhttp = this. responseXML;
+      var cds = xmlDOc.getElementsByTagName == ("CD"); 
+          
+       var table = "<table style='border-collapse: collapse; width: 60%; font-size: 18px;'>";
+          table += "<tr>";
+          table += "<th style='border: 1px solid black; padding: 8px;'>Title</th>";
+          table += "<th style='border: 1px solid black; padding: 8px;'>Artist</th>";
+          table += "<th style='border: 1px solid black; padding: 8px;'>Year</th>";
+          table += "</tr>";
 
-      xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-          var xmlDoc = this.responseXML;
-          var cds = xmlDoc.getElementsByTagName("CD");
-          var table = "<table border ='1'><tr><th>Title</th><th>Artist</th><th>Year</th></tr>";
           for (var i = 0; i < cds.length; i++) {
             var title = cds[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue;
             var artist = cds[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue;
             var year = cds[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue;
-            table += "<tr><td>" + title + "</td><td>" + artist + "</td><td>" + year + "</td></tr>";
-          }
-          table += "</table>";
+              table += "<tr>";
+            table += "<td style='border: 1px solid black; padding: 6px;'>" + title + "</td>";
+            table += "<td style='border: 1px solid black; padding: 6px;'>" + artist + "</td>";
+            table += "<td style='border: 1px solid black; padding: 6px;'>" + year + "</td>";
+            table += "</tr>";
           document.getElementById("cdTable").innerHTML = table;
         }
       };
@@ -38,6 +45,17 @@
     }
   </script>
   <br>
+  <h2> Explanation of AJAX </h2>
+  <p>
+    loadCDs() is the function that runs when the button is clicked. It creates a new XMLHttpRequest and sends a GET
+    request for the cd_catalog.xml file. When the request finishes loading, it checks that the response was successful
+    and then reads the XML data.
+    <br>
+    <br>
+    Inside the onreadystatechange function, the code loops through all of the CD elements in the XML. For each CD, it
+    gets the title, artists, and year, and creates a new table row with that information. Once all the rows are created,
+    the full table is written into the page by setting the innerHTML of the cdTable div.
+  </p>
   <a href="index.html"> Back to Assignments</a>
 </body>
 
