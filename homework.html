@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Javascript Homework 8</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="HTML5 Javascript Homework Assignment 8">
+  <meta name="keywords" content="HTML, CSS, JavaScript, CSM, Homework 8">
+  <meta name="author" content="T.C">
+</head>
+
+<body style="background-color:lightyellow;">
+  <h1>Homework 8 - Ajax Application</h1>
+  <br><br>
+  <button type="button" onclick="loadCDs()">Show CD Collection</button>
+  <br><br>
+  <div id="cdTable"></div>
+
+  <script>
+    function loadCDs() {
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function() {
+        myFunction(this);
+      }
+      xhttp.open("GET", "cd_catalog.xml");
+      xhttp.send();
+    }
+    
+    function myFunction(xml) {
+      const xmlDoc = xml.responseXML;
+      const cds = xmlDoc.getElementsByTagName("CD");
+      let table = "<table style='border-collapse: collapse; width: 60%; font-size: 18px;'>";
+      table += "<tr>";
+      table += "<th style='border: 1px solid black; padding: 8px;'>Title</th>";
+      table += "<th style='border: 1px solid black; padding: 8px;'>Artist</th>";
+      table += "<th style='border: 1px solid black; padding: 8px;'>Year</th>";
+      table += "</tr>";
+      
+      for (let i = 0; i < cds.length; i++) { 
+        table += "<tr>";
+        table += "<td style='border: 1px solid black; padding: 6px;'>" +
+        cds[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+        "</td>";
+        table += "<td style='border: 1px solid black; padding: 6px;'>" +
+        cds[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+        "</td>";
+        table += "<td style='border: 1px solid black; padding: 6px;'>" +
+        cds[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue +
+        "</td>";
+        table += "</tr>";
+      }
+      table += "</table>";
+      document.getElementById("cdTable").innerHTML = table;
+    }
+  </script>
+
+  <h2>Explanation of AJAX</h2>
+  <p>
+    loadCDs() is the function that runs when the button is clicked. It creates a new XMLHttpRequest and sends a GET
+    request for the cd_catalog.xml file. When the request finishes loading, it checks that the response was successful
+    and then reads the XML data.
+  </p>
+  <p>
+    Inside the onreadystatechange function, the code loops through all of the CD elements in the XML. For each CD, it
+    gets the title, artist, and year, and creates a new table row with that information. Once all the rows are created,
+    the full table is written into the page by setting the innerHTML of the cdTable div.
+  </p>
+
+  <h2>REST API</h2>
+  <p>
+    <a href="https://boggio-analytics.com/fp-api/?ref=apilist.fun">Football Prediction</a> is a REST API that offers
+    predictions data for upcoming football (soccer) matches worldwide. The API uses machine learning to analyze team
+    performance and generate accurate match predictions.
+  </p>
+  <p>
+    The API returns data in JSON format, making it easy to integrate into applications. Each response includes
+    prediction probabilities, bookmaker odds, team strength ratings, and multiple betting markets like 1x2 outcomes,
+    both teams to score, and over/under goals.
+  </p>
+  <p>
+    To access the Football Prediction API, developers need to register for an API key through RapidAPI. This key is used
+    to authenticate requests and track usage. The Basic plan is completely free with 100 API calls per month. Paid plans
+    start at $14.99 per month for 500 calls per day, scaling up to $29.99 per month for 12,000 calls per day.
+  </p>
+  <p>
+    API Documentation is available at the official Football Prediction API website and RapidAPI platform. The
+    documentation includes endpoint specifications, sample responses, and code examples in multiple programming
+    languages.
+  </p>
+  <p>
+    This API is a great way to add professional football predictions to your sports platform!
+  </p>
+
+  <a href="index.html">Back to Assignments</a>
+</body>
+</html>
