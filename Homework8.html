@@ -19,7 +19,7 @@
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-          var xmlhttp = this.responseXML;
+          var xmlDoc = this.responseXML;
           var cds = xmlDoc.getElementsByTagName("CD");
 
           var table = "<table style='border-collapse: collapse; width: 60%; font-size: 18px;'>";
